@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "reelsmaxxing",
+    "version": "1.0.0",
+    "description": "Automatically scroll Instagram Reels with customizable delays",
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["*://www.instagram.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "Instagram Reels Auto Scroller"
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }

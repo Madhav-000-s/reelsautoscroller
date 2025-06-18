@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 320px;
+      padding: 20px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #fff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e1e5e9;
+      padding-bottom: 15px;
+    }
+
+    .logo {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+      border-radius: 6px;
+      margin-right: 12px;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .warning {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #856404;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .toggle-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: #262626;
+    }
+
+    .toggle-switch {
+      background: #dbdbdb;
+      border: none;
+      border-radius: 20px;
+      width: 44px;
+      height: 24px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .toggle-switch.enabled {
+      background: #0095f6;
+    }
+
+    .toggle-knob {
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: left 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .toggle-switch.enabled .toggle-knob {
+      left: 22px;
+    }
+
+    .slider-group {
+      margin-bottom: 20px;
+    }
+
+    .slider-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #262626;
+      margin-bottom: 8px;
+    }
+
+    .slider {
+      width: 100%;
+      height: 4px;
+      background: #dbdbdb;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #0095f6;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #0095f6;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    .slider-range {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #8e8e8e;
+      margin-top: 4px;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 12px;
+      color: #65676b;
+      line-height: 1.4;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"></div>
+    <h1 class="title">Instagram Reels Auto Scroller</h1>
+  </div>
+
+  <div id="warning" class="warning" style="display: none;">
+    ⚠️ Please navigate to Instagram Reels to use this extension
+  </div>
+
+  <div class="control-group">
+    <div class="toggle-container">
+      <label class="toggle-label">Auto Scroll</label>
+      <button id="toggleSwitch" class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </button>
+    </div>
+
+    <div class="slider-group">
+      <label class="slider-label" for="delaySlider">
+        Delay after reel ends: <span id="delayValue">2</span>s
+      </label>
+      <input type="range" id="delaySlider" class="slider" min="0" max="10" step="0.5" value="2">
+      <div class="slider-range">
+        <span>0s</span>
+        <span>10s</span>
+      </div>
+    </div>
+
+    <div class="slider-group">
+      <label class="slider-label" for="maxWaitSlider">
+        Max wait time: <span id="maxWaitValue">40</span>s
+      </label>
+      <input type="range" id="maxWaitSlider" class="slider" min="10" max="120" step="5" value="40">
+      <div class="slider-range">
+        <span>10s</span>
+        <span>120s</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>How to use:</strong>
+    • Navigate to Instagram Reels<br>
+    • The extension will auto-scroll when reels end<br>
+    • Use Ctrl+Shift+A to toggle on/off<br>
+    • Adjust delays above to customize timing
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
